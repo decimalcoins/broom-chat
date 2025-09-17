@@ -6,8 +6,8 @@ export const Footer = () => {
       <div className="container py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <img src="/src/assets/broom-logo.png" alt="broom" className="h-8" />
+            <div className="flex items-center justify-center">
+              <img src="/src/assets/broom-logo.png" alt="broom" className="h-12" />
             </div>
             <p className="text-white/70 leading-relaxed">
               The world's first Pi Network-powered marketplace. Shop securely with cryptocurrency and discover amazing products from verified sellers.

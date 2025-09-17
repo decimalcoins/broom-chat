@@ -8,8 +8,8 @@ export const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2">
-            <img src="/src/assets/broom-logo.png" alt="broom" className="h-8" />
+          <div className="flex items-center justify-center">
+            <img src="/src/assets/broom-logo.png" alt="broom" className="h-12" />
           </div>
           <nav className="hidden md:flex items-center gap-6">
             <a href="#" className="text-sm font-medium hover:text-primary transition-colors">Home</a>
