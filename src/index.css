@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Broom Marketplace Design System - Pi Network inspired theme */
 
 @layer base {
   :root {
@@ -17,8 +15,11 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Pi Network inspired green palette */
+    --primary: 158 64% 52%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 158 64% 42%;
+    --primary-light: 158 64% 96%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -26,17 +27,35 @@ All colors MUST be HSL.
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 158 64% 96%;
+    --accent-foreground: 158 64% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 158 64% 52%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Marketplace specific colors */
+    --marketplace-bg: 249 250% 99%;
+    --marketplace-section: 0 0% 98%;
+    --price-text: 158 64% 42%;
+    --rating-star: 45 93% 58%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(158 64% 52%), hsl(158 80% 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(158 64% 52%), hsl(158 80% 45%), hsl(210 40% 30%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    
+    /* Shadows */
+    --shadow-soft: 0 2px 15px -3px hsl(158 64% 52% / 0.07), 0 10px 20px -2px hsl(158 64% 52% / 0.04);
+    --shadow-medium: 0 10px 25px -5px hsl(158 64% 52% / 0.1), 0 10px 10px -5px hsl(158 64% 52% / 0.04);
+    --shadow-large: 0 25px 50px -12px hsl(158 64% 52% / 0.25);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -65,8 +84,10 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 158 64% 52%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 158 64% 62%;
+    --primary-light: 158 64% 12%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -74,15 +95,28 @@ All colors MUST be HSL.
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 158 64% 15%;
+    --accent-foreground: 158 64% 85%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: 158 64% 52%;
+
+    --marketplace-bg: 222.2 84% 3%;
+    --marketplace-section: 217.2 32.6% 15.5%;
+    --price-text: 158 64% 62%;
+    --rating-star: 45 93% 68%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(158 64% 52%), hsl(158 80% 62%));
+    --gradient-hero: linear-gradient(135deg, hsl(158 64% 52%), hsl(158 80% 62%), hsl(210 40% 70%));
+    --gradient-card: linear-gradient(145deg, hsl(217.2 32.6% 17.5%), hsl(217.2 32.6% 20%));
+    
+    --shadow-soft: 0 2px 15px -3px hsl(0 0% 0% / 0.1), 0 10px 20px -2px hsl(0 0% 0% / 0.08);
+    --shadow-medium: 0 10px 25px -5px hsl(0 0% 0% / 0.15), 0 10px 10px -5px hsl(0 0% 0% / 0.1);
+    --shadow-large: 0 25px 50px -12px hsl(0 0% 0% / 0.3);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
