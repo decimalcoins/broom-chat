@@ -9,8 +9,8 @@ export const Header = () => {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-full bg-gradient-primary"></div>
-            <h1 className="text-xl font-bold text-foreground">Broom Marketplace</h1>
+            <img src="/src/assets/broom-logo.png" alt="broom" className="h-8" />
+            <h1 className="text-xl font-bold text-foreground">broom</h1>
           </div>
           <nav className="hidden md:flex items-center gap-6">
             <a href="#" className="text-sm font-medium hover:text-primary transition-colors">Home</a>

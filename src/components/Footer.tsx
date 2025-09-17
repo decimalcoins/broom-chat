@@ -7,8 +7,8 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="h-8 w-8 rounded-full bg-gradient-primary"></div>
-              <h3 className="text-xl font-bold">Broom Marketplace</h3>
+              <img src="/src/assets/broom-logo.png" alt="broom" className="h-8" />
+              <h3 className="text-xl font-bold">broom</h3>
             </div>
             <p className="text-white/70 leading-relaxed">
               The world's first Pi Network-powered marketplace. Shop securely with cryptocurrency and discover amazing products from verified sellers.
@@ -64,7 +64,7 @@ export const Footer = () => {
         
         <div className="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between">
           <p className="text-white/70 text-sm">
-            © 2024 Broom Marketplace. All rights reserved. Powered by Pi Network.
+            © 2024 broom. All rights reserved. Powered by Pi Network.
           </p>
           <div className="flex items-center gap-6 mt-4 md:mt-0">
             <a href="#" className="text-white/70 hover:text-white text-sm transition-colors">Privacy Policy</a>
