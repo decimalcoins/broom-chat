@@ -8,7 +8,6 @@ export const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <img src="/src/assets/broom-logo.png" alt="broom" className="h-8" />
-              <h3 className="text-xl font-bold">broom</h3>
             </div>
             <p className="text-white/70 leading-relaxed">
               The world's first Pi Network-powered marketplace. Shop securely with cryptocurrency and discover amazing products from verified sellers.

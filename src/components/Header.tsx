@@ -10,7 +10,6 @@ export const Header = () => {
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
             <img src="/src/assets/broom-logo.png" alt="broom" className="h-8" />
-            <h1 className="text-xl font-bold text-foreground">broom</h1>
           </div>
           <nav className="hidden md:flex items-center gap-6">
             <a href="#" className="text-sm font-medium hover:text-primary transition-colors">Home</a>
