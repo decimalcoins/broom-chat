@@ -77,10 +77,10 @@ export const ProductCard = ({
         <div className="flex items-center justify-between">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="font-bold text-price text-lg">π{price}</span>
+              <span className="font-bold text-price text-lg">GCV{price}</span>
               {originalPrice && (
                 <span className="text-xs text-muted-foreground line-through">
-                  π{originalPrice}
+                  GCV{originalPrice}
                 </span>
               )}
             </div>
