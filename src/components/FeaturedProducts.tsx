@@ -9,8 +9,8 @@ const featuredProducts = [
   {
     id: "1",
     name: "Premium Smartphone Pro Max 256GB",
-    price: 2.86,
-    originalPrice: 3.82,
+    price: 899,
+    originalPrice: 1199,
     image: phoneImage,
     rating: 4.8,
     reviews: 1250,
@@ -20,8 +20,8 @@ const featuredProducts = [
   {
     id: "2", 
     name: "Wireless Noise-Canceling Headphones",
-    price: 0.95,
-    originalPrice: 1.27,
+    price: 299,
+    originalPrice: 399,
     image: headphonesImage,
     rating: 4.7,
     reviews: 856,
@@ -31,7 +31,7 @@ const featuredProducts = [
   {
     id: "3",
     name: "MacBook Pro 14-inch M3 Chip",
-    price: 6.36,
+    price: 1999,
     image: laptopImage,
     rating: 4.9,
     reviews: 542,
@@ -40,8 +40,8 @@ const featuredProducts = [
   {
     id: "4",
     name: "Premium Running Sneakers",
-    price: 0.41,
-    originalPrice: 0.57,
+    price: 129,
+    originalPrice: 179,
     image: shoesImage,
     rating: 4.6,
     reviews: 923,
@@ -51,7 +51,7 @@ const featuredProducts = [
   {
     id: "5",
     name: "Smart Watch Series 9 GPS + Cellular",
-    price: 1.43,
+    price: 449,
     image: watchImage,
     rating: 4.8,
     reviews: 1134,
@@ -60,8 +60,8 @@ const featuredProducts = [
   {
     id: "6",
     name: "Premium Smartphone Pro Max 256GB",
-    price: 2.86,
-    originalPrice: 3.82,
+    price: 899,
+    originalPrice: 1199,
     image: phoneImage,
     rating: 4.8,
     reviews: 1250,
