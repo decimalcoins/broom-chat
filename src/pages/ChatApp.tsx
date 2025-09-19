@@ -20,21 +20,38 @@ const ChatApp = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    // Set up auth state listener
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        setSession(session);
-        setUser(session?.user ?? null);
+    // Check for existing Pi auth
+    const piAuth = localStorage.getItem('pi_auth');
+    if (piAuth) {
+      try {
+        const authData = JSON.parse(piAuth);
+        if (authData.authenticated && authData.user) {
+          setUser(authData.user);
+          setSession({
+            access_token: authData.accessToken,
+            user: authData.user,
+          } as Session);
+        }
+      } catch (error) {
+        console.error('Error parsing Pi auth data:', error);
+        localStorage.removeItem('pi_auth');
       }
-    );
+    }
 
-    // Check for existing session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-    });
+    // Listen for Pi auth success
+    const handlePiAuthSuccess = (event: CustomEvent) => {
+      setUser(event.detail.user);
+      setSession({
+        access_token: 'pi_token',
+        user: event.detail.user,
+      } as Session);
+    };
 
-    return () => subscription.unsubscribe();
+    window.addEventListener('pi-auth-success', handlePiAuthSuccess as EventListener);
+
+    return () => {
+      window.removeEventListener('pi-auth-success', handlePiAuthSuccess as EventListener);
+    };
   }, []);
 
   if (!user) {
