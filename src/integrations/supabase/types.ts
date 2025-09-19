@@ -14,7 +14,133 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      chat_rooms: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      gif_transactions: {
+        Row: {
+          created_at: string
+          id: string
+          message_id: string
+          pi_amount: number
+          receiver_id: string
+          sender_id: string
+          transaction_status: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          message_id: string
+          pi_amount: number
+          receiver_id: string
+          sender_id: string
+          transaction_status?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          message_id?: string
+          pi_amount?: number
+          receiver_id?: string
+          sender_id?: string
+          transaction_status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "gif_transactions_message_id_fkey"
+            columns: ["message_id"]
+            isOneToOne: false
+            referencedRelation: "messages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      messages: {
+        Row: {
+          content: string | null
+          created_at: string
+          gif_url: string | null
+          id: string
+          message_type: string
+          pi_cost: number | null
+          room_id: string
+          user_id: string
+          video_url: string | null
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string
+          gif_url?: string | null
+          id?: string
+          message_type?: string
+          pi_cost?: number | null
+          room_id: string
+          user_id: string
+          video_url?: string | null
+        }
+        Update: {
+          content?: string | null
+          created_at?: string
+          gif_url?: string | null
+          id?: string
+          message_type?: string
+          pi_cost?: number | null
+          room_id?: string
+          user_id?: string
+          video_url?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "messages_room_id_fkey"
+            columns: ["room_id"]
+            isOneToOne: false
+            referencedRelation: "chat_rooms"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          id: string
+          pi_user_id: string | null
+          username: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          pi_user_id?: string | null
+          username?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          pi_user_id?: string | null
+          username?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
