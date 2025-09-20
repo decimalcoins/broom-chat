@@ -41,6 +41,7 @@ export const ChatRoom = ({ room, user }: ChatRoomProps) => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    joinRoom();
     fetchMessages();
     
     // Set up realtime subscription
@@ -73,6 +74,39 @@ export const ChatRoom = ({ room, user }: ChatRoomProps) => {
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const joinRoom = async () => {
+    try {
+      // Check if user is already a member
+      const { data: existingMembership } = await supabase
+        .from('chat_room_memberships')
+        .select('id')
+        .eq('user_id', user.id)
+        .eq('room_id', room.id)
+        .single();
+
+      // If not a member, join the room
+      if (!existingMembership) {
+        const { error } = await supabase
+          .from('chat_room_memberships')
+          .insert({
+            user_id: user.id,
+            room_id: room.id
+          });
+
+        if (error) throw error;
+      }
+    } catch (error: any) {
+      // Ignore if user is already a member (unique constraint error)
+      if (!error.message?.includes('duplicate key')) {
+        toast({
+          title: "Error",
+          description: "Gagal bergabung ke ruangan",
+          variant: "destructive",
+        });
+      }
+    }
   };
 
   const fetchMessages = async () => {
