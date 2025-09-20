@@ -62,7 +62,10 @@ const ChatApp = () => {
     <div className="h-screen flex bg-background">
       <div className="w-80 border-r border-border bg-card">
         <div className="p-4 border-b border-border">
-          <h1 className="text-xl font-bold text-foreground">Pi Chat</h1>
+          <div className="flex items-center gap-3 mb-2">
+            <img src="/src/assets/broom-logo.png" alt="broom" className="h-8" />
+            <h1 className="text-xl font-bold text-foreground">broom</h1>
+          </div>
           <p className="text-sm text-muted-foreground">Live video chat dengan Pi coins</p>
         </div>
         <ChatRoomList 
@@ -77,9 +80,12 @@ const ChatApp = () => {
         ) : (
           <div className="flex items-center justify-center h-full">
             <div className="text-center">
-              <h2 className="text-2xl font-semibold text-foreground mb-2">
-                Selamat datang di Pi Chat
-              </h2>
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <img src="/src/assets/broom-logo.png" alt="broom" className="h-12" />
+                <h2 className="text-2xl font-semibold text-foreground">
+                  Selamat datang di broom
+                </h2>
+              </div>
               <p className="text-muted-foreground">
                 Pilih ruang chat untuk mulai berbincang dan berbagi video
               </p>
