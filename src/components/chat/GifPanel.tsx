@@ -4,6 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Gift, X, Coins } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import "@/types/pi";
 
 interface GifPanelProps {
   onClose: () => void;
@@ -70,15 +71,52 @@ export const GifPanel = ({ onClose, onSendGif }: GifPanelProps) => {
     setSelectedGif(gif);
   };
 
-  const handleSendGif = () => {
-    if (selectedGif) {
-      // Simulate Pi payment
-      toast({
-        title: "Pi Payment",
-        description: `${selectedGif.cost} Pi coins akan dipotong untuk GIF ini`,
+  const handleSendGif = async () => {
+    if (!selectedGif) return;
+
+    try {
+      // Create Pi payment
+      await window.Pi.createPayment({
+        amount: selectedGif.cost,
+        memo: `GIF: ${selectedGif.title}`,
+        metadata: { gifId: selectedGif.id, type: 'gif_purchase' }
+      }, {
+        onReadyForServerApproval: function(paymentId) {
+          console.log('Payment ready for server approval:', paymentId);
+        },
+        onReadyForServerCompletion: function(paymentId, txid) {
+          console.log('Payment completed:', paymentId, txid);
+          toast({
+            title: "GIF Terkirim!",
+            description: `Berhasil mengirim ${selectedGif.title} dengan ${selectedGif.cost} Pi`,
+          });
+          onSendGif(selectedGif.url);
+          onClose();
+        },
+        onCancel: function(paymentId) {
+          console.log('Payment cancelled:', paymentId);
+          toast({
+            title: "Pembayaran Dibatalkan",
+            description: "Transaksi Pi dibatalkan",
+            variant: "destructive",
+          });
+        },
+        onError: function(error, payment) {
+          console.error('Payment error:', error);
+          toast({
+            title: "Error",
+            description: "Gagal memproses pembayaran Pi",
+            variant: "destructive",
+          });
+        }
       });
-      
-      onSendGif(selectedGif.url);
+    } catch (error) {
+      console.error('Pi payment error:', error);
+      toast({
+        title: "Error",
+        description: "Gagal mengirim GIF",
+        variant: "destructive",
+      });
     }
   };
 

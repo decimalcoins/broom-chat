@@ -4,22 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { Coins, Shield } from "lucide-react";
-
-// Declare Pi global type
-declare global {
-  interface Window {
-    Pi: {
-      init: (config: any) => Promise<void>;
-      authenticate: (scopes: string[], onIncompletePaymentFound?: (payment: any) => void) => Promise<{
-        accessToken: string;
-        user: {
-          uid: string;
-          username: string;
-        };
-      }>;
-    };
-  }
-}
+import "@/types/pi";
 
 export const AuthForm = () => {
   const [loading, setLoading] = useState(false);
@@ -27,29 +12,22 @@ export const AuthForm = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    // Load Pi Network SDK
-    const script = document.createElement('script');
-    script.src = 'https://sdk.minepi.com/pi-sdk.js';
-    script.onload = initializePi;
-    document.head.appendChild(script);
-    
-    return () => {
-      document.head.removeChild(script);
-    };
+    // Pi SDK is loaded globally, just initialize
+    initializePi();
   }, []);
 
   const initializePi = async () => {
     try {
-      await window.Pi.init({
-        version: "2.0",
-        sandbox: true, // Change to false for production
-      });
-      setPiInitialized(true);
-      
-      toast({
-        title: "Pi SDK Ready",
-        description: "Pi Network SDK berhasil dimuat",
-      });
+      // Pi SDK is already initialized globally
+      if (window.Pi) {
+        setPiInitialized(true);
+        toast({
+          title: "Pi SDK Ready", 
+          description: "Pi Network SDK berhasil dimuat",
+        });
+      } else {
+        throw new Error('Pi SDK not available');
+      }
     } catch (error) {
       console.error('Pi SDK initialization failed:', error);
       toast({
