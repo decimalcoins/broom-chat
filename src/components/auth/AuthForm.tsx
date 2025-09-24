@@ -116,7 +116,7 @@ export const AuthForm = () => {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center space-y-4">
           <div className="flex items-center justify-center gap-2 mx-0 px-0 my-0 py-0">
-            <img src={broomLogo} alt="Broom Logo" className="w-16 h-16" />
+            <img src={broomLogo} alt="Broom Logo" className="w-20 h-20" />
             
           </div>
           <p className="text-muted-foreground">
