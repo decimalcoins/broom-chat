@@ -6,25 +6,24 @@ import { useToast } from "@/hooks/use-toast";
 import { Coins, Shield } from "lucide-react";
 import broomLogo from "@/assets/broom-logo.png";
 import "@/types/pi";
-
 export const AuthForm = () => {
   const [loading, setLoading] = useState(false);
   const [piInitialized, setPiInitialized] = useState(false);
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   useEffect(() => {
     // Pi SDK is loaded globally, just initialize
     initializePi();
   }, []);
-
   const initializePi = async () => {
     try {
       // Pi SDK is already initialized globally
       if (window.Pi) {
         setPiInitialized(true);
         toast({
-          title: "Pi SDK Ready", 
-          description: "Pi Network SDK berhasil dimuat",
+          title: "Pi SDK Ready",
+          description: "Pi Network SDK berhasil dimuat"
         });
       } else {
         throw new Error('Pi SDK not available');
@@ -34,54 +33,43 @@ export const AuthForm = () => {
       toast({
         title: "Error",
         description: "Gagal memuat Pi Network SDK",
-        variant: "destructive",
+        variant: "destructive"
       });
     }
   };
-
   const handlePiAuth = async () => {
     if (!piInitialized) {
       toast({
         title: "Error",
         description: "Pi SDK belum siap. Silakan tunggu...",
-        variant: "destructive",
+        variant: "destructive"
       });
       return;
     }
-
     setLoading(true);
-
     try {
       // Authenticate with Pi Network
-      const authResult = await window.Pi.authenticate(
-        ["username", "payments"], 
-        (payment) => {
-          console.log("Incomplete payment found:", payment);
-        }
-      );
-
+      const authResult = await window.Pi.authenticate(["username", "payments"], payment => {
+        console.log("Incomplete payment found:", payment);
+      });
       console.log("Pi authentication successful:", authResult);
 
       // Create or update user profile in Supabase
-      const { data: existingProfile, error: fetchError } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('pi_user_id', authResult.user.uid)
-        .maybeSingle();
-
+      const {
+        data: existingProfile,
+        error: fetchError
+      } = await supabase.from('profiles').select('*').eq('pi_user_id', authResult.user.uid).maybeSingle();
       if (fetchError && fetchError.code !== 'PGRST116') {
         throw fetchError;
       }
-
       if (!existingProfile) {
         // Create new profile
-        const { error: insertError } = await supabase
-          .from('profiles')
-          .insert({
-            pi_user_id: authResult.user.uid,
-            username: authResult.user.username,
-          });
-
+        const {
+          error: insertError
+        } = await supabase.from('profiles').insert({
+          pi_user_id: authResult.user.uid,
+          username: authResult.user.username
+        });
         if (insertError) throw insertError;
       }
 
@@ -91,7 +79,7 @@ export const AuthForm = () => {
         email: `${authResult.user.username}@pi.network`,
         user_metadata: {
           username: authResult.user.username,
-          pi_user_id: authResult.user.uid,
+          pi_user_id: authResult.user.uid
         }
       };
 
@@ -100,40 +88,36 @@ export const AuthForm = () => {
         accessToken: authResult.accessToken,
         user: customUser,
         authenticated: true,
-        timestamp: Date.now(),
+        timestamp: Date.now()
       }));
 
       // Trigger a custom event for auth state change
-      window.dispatchEvent(new CustomEvent('pi-auth-success', { 
-        detail: { user: customUser } 
+      window.dispatchEvent(new CustomEvent('pi-auth-success', {
+        detail: {
+          user: customUser
+        }
       }));
-
       toast({
         title: "Login berhasil!",
-        description: `Selamat datang ${authResult.user.username}!`,
+        description: `Selamat datang ${authResult.user.username}!`
       });
-
     } catch (error: any) {
       console.error('Pi authentication error:', error);
       toast({
         title: "Error",
         description: error.message || "Gagal login dengan Pi Network",
-        variant: "destructive",
+        variant: "destructive"
       });
     } finally {
       setLoading(false);
     }
   };
-
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+  return <div className="min-h-screen flex items-center justify-center bg-background p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center space-y-4">
-          <div className="flex items-center justify-center gap-2">
+          <div className="flex items-center justify-center gap-2 mx-0 px-0 my-0 py-0">
             <img src={broomLogo} alt="Broom Logo" className="w-8 h-8" />
-            <CardTitle className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              Broom
-            </CardTitle>
+            
           </div>
           <p className="text-muted-foreground">
             Live chat dengan video sharing menggunakan Pi Network
@@ -143,32 +127,22 @@ export const AuthForm = () => {
         <CardContent className="space-y-6">
           {/* Pi Network Login */}
           <div className="space-y-4">
-            <Button 
-              onClick={handlePiAuth} 
-              className="w-full h-12 flex items-center gap-3 bg-gradient-primary hover:opacity-90 transition-opacity"
-              disabled={loading || !piInitialized}
-            >
-              {loading ? (
-                <>
+            <Button onClick={handlePiAuth} className="w-full h-12 flex items-center gap-3 bg-gradient-primary hover:opacity-90 transition-opacity" disabled={loading || !piInitialized}>
+              {loading ? <>
                   <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                   Connecting...
-                </>
-              ) : (
-                <>
+                </> : <>
                   <Coins size={20} />
                   Login dengan Pi Network
-                </>
-              )}
+                </>}
             </Button>
 
-            {!piInitialized && (
-              <div className="text-center">
+            {!piInitialized && <div className="text-center">
                 <div className="w-4 h-4 border-2 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-2" />
                 <p className="text-sm text-muted-foreground">
                   Memuat Pi Network SDK...
                 </p>
-              </div>
-            )}
+              </div>}
           </div>
 
           {/* Features */}
@@ -201,6 +175,5 @@ export const AuthForm = () => {
           </div>
         </CardContent>
       </Card>
-    </div>
-  );
+    </div>;
 };
