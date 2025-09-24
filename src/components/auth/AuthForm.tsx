@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { Coins, Shield } from "lucide-react";
+import broomLogo from "@/assets/broom-logo.png";
 import "@/types/pi";
 
 export const AuthForm = () => {
@@ -129,9 +130,9 @@ export const AuthForm = () => {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center space-y-4">
           <div className="flex items-center justify-center gap-2">
-            <Coins size={32} className="text-primary" />
+            <img src={broomLogo} alt="Broom Logo" className="w-8 h-8" />
             <CardTitle className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              Pi Chat
+              Broom
             </CardTitle>
           </div>
           <p className="text-muted-foreground">
