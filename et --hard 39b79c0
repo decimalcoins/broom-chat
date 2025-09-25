@@ -1,0 +1,56 @@
+[33made9a36[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{0}: reset: moving to origin/main
+[33m39b79c0[m HEAD@{1}: reset: moving to HEAD
+[33m39b79c0[m HEAD@{2}: commit: fix: perbaikan Pi SDK agar jalan di Pi Browser
+[33m4b1b9b6[m HEAD@{3}: commit: fix: remove duplicate Pi SDK script from layout
+[33mc5e049d[m HEAD@{4}: commit: Fix PiProvider import & rebuild
+[33mc8e0fcc[m HEAD@{5}: commit: Perbaiki PiContext.js & sinkronisasi admin
+[33m2c95ec9[m HEAD@{6}: commit: Integrasi Pi login & pembayaran admin
+[33m67b59aa[m HEAD@{7}: commit: Perbaikan CheckoutModal dan integrasi Pi SDK
+[33m7b7012e[m HEAD@{8}: commit: add user page with checkout modal
+[33m6b33baf[m HEAD@{9}: commit: fix: tutup LoginModal otomatis dan redirect admin di app/page.js
+[33mdf224cb[m HEAD@{10}: commit: fix: update Pi login flow
+[33md66879d[m HEAD@{11}: commit: Fix: install fontawesome & build success
+[33m3e838ce[m HEAD@{12}: commit: Remove duplicate broom folder
+[33ma77fdad[m HEAD@{13}: commit: fix: update next.config dan PiContext
+[33m65cfd2d[m HEAD@{14}: commit: fix: perbaikan PiContext dan login modal
+[33m09c3704[m HEAD@{15}: commit: fix: perbaikan LoginModal
+[33mff6b65f[m HEAD@{16}: commit: fix: perbaikan PiContext dan login modal
+[33m3b54151[m HEAD@{17}: commit: Fix: import useApp from PiContext & add login handlers
+[33m2ebc470[m HEAD@{18}: commit: Rename hook useAppContext -> useApp
+[33mc24f84b[m HEAD@{19}: commit: fix: import useApp from PiContext
+[33mba05ddc[m HEAD@{20}: rebase (finish): returning to refs/heads/main
+[33mba05ddc[m HEAD@{21}: rebase (continue): Save local changes before rebase
+[33me4fb9b6[m HEAD@{22}: pull origin main --rebase (pick): Update submodule broom after PiContext fix
+[33m705a064[m HEAD@{23}: pull origin main --rebase (pick): fix: rename AppProvider to PiProvider, cleanup old export
+[33m65279f7[m HEAD@{24}: pull origin main --rebase (start): checkout 65279f7c0a23f1a718f96e88a9570b51901ee523
+[33madc8391[m HEAD@{25}: commit: Save local changes before rebase
+[33mb310213[m HEAD@{26}: commit: Update submodule broom after PiContext fix
+[33ma4b9e59[m HEAD@{27}: commit: fix: rename AppProvider to PiProvider, cleanup old export
+[33m0751ac4[m HEAD@{28}: commit: fix: add providers.jsx and update layout.jsx for PiProvider
+[33m38f106b[m HEAD@{29}: Branch: renamed refs/heads/main to refs/heads/main
+[33m38f106b[m HEAD@{31}: commit: fix: tambah use client di layout dan PiContext
+[33mb914607[m HEAD@{32}: commit: update Pi integration
+[33m84f6393[m HEAD@{33}: commit: UI navbar
+[33m39f28e2[m HEAD@{34}: commit: Fix: atasi masalah hidrasi dengan dynamic import
+[33m1e408f6[m HEAD@{35}: commit: feat: selesaikan verifikasi pembayaran Pi di backend
+[33m8127a37[m HEAD@{36}: commit: feat: selesaikan verifikasi pembayaran Pi di backend
+[33m9792016[m HEAD@{37}: commit: Finalize: selesaikan dasbor admin dan alur pembayaran
+[33m5ececf6[m HEAD@{38}: commit: Fix: final attempt to fix context hook in payment page
+[33m05b9686[m HEAD@{39}: commit: Fix: final attempt to fix context hook in payment page
+[33m1232bdb[m HEAD@{40}: commit: Fix: perbaiki pemanggilan context di halaman payment
+[33m0825bb7[m HEAD@{41}: commit: Fix: perbaiki pemanggilan context di halaman auth dan payment
+[33m2228724[m HEAD@{42}: commit: Fix: perbaiki pemanggilan context di halaman auth dan payment
+[33m5c4d7a0[m HEAD@{43}: commit: refactor: finalisasi integrasi context dan perbaikan hidrasi
+[33m86fb862[m HEAD@{44}: commit: refactor: finalisasi integrasi context dan perbaikan hidrasi
+[33m61df011[m HEAD@{45}: commit: feat: kembalikan pembayaran pendaftaran admin
+[33mec01c50[m HEAD@{46}: commit: Fix: atasi masalah hidrasi dengan dynamic import
+[33m9583e9b[m HEAD@{47}: commit: feat: Finalize perbaikan UI dan merangkum semua pembaruan padaalur pembayaran Pi dan bank
+[33m984c28a[m HEAD@{48}: commit: feat: implementasi penuh pembayaran bank dengan konfirmasi
+[33m43d817a[m HEAD@{49}: commit: feat: implementasi penuh alur autentikasi dan pembayaran Pi
+[33medd4a38[m HEAD@{50}: commit: Fix: perbaiki callback pembayaran di LoginModal
+[33ma44fc3c[m HEAD@{51}: commit: fix: memastikan isi file validasi benar
+[33m1d603ea[m HEAD@{52}: commit: feat: tambahkan file validasi domain Pi
+[33m3d6f271[m HEAD@{53}: commit: add verif
+[33m81fb78a[m HEAD@{54}: commit: Fix: tambahkan dan ekspor konstanta categories
+[33m9b5fff7[m HEAD@{55}: commit: Fix: perbaiki bug & tingkatkan UX di modal checkout dan chat
+[33m2aaa93b[m HEAD@{56}: commit (initial): Initial clean commit
